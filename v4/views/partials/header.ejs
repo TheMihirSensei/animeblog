@@ -26,7 +26,7 @@
           <a href="/login" class="item">login</a> 
           <a href="/signup" class="item">Sing-up</a>
         <% } else{ %>
-          <a href="#" class="item">Welcome <%= currentUser.username %></a>
+          <a href="#" class="item">Welcome..   <span class="na">  <%= currentUser.username.toUpperCase() %></span></a>
           <a href="/logout" class="item">LogOut</a>
         <% } %>
         
