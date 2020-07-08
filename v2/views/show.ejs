@@ -1,0 +1,67 @@
+<%- include("partials/header"); %>
+<style>
+
+    body{
+        background-image: url("<%= animeblog.image %>");
+        background-repeat: no-repeat repeat;
+        background-position:center;
+        background-size:cover;
+        background-color: rgba(255,255,255,0.4);
+        background-blend-mode: lighten;
+        opacity: .9;
+        height:10vh;
+        
+    }
+    
+
+</style>
+
+
+<div class="ui main text black inverted container segment">
+    <div class="ui huge header">
+        <%= animeblog.title %>
+        
+    </div>
+    <div class=" ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= animeblog.image %>">
+        </div>
+        <div class="item">
+           <h4 class="ui centered">Episode: <%= animeblog.episode %>  </h4> 
+        </div>
+        <div class="description"">
+            <%- animeblog.desc %>
+        </div>
+
+
+        <div>
+            <% animeblog.comments.forEach(function(comment){ %>
+                <p>
+                    <strong><%= comment.author %> </strong>
+                </p>  
+                <p>
+                   <%= comment.text %>
+                </p>
+            <%  }) %>
+        </div>
+        <div id="foot" >
+            <a href="/animeblog/<%= animeblog._id %>/edit" class="ui inverted green button">Edit</a>
+
+            <form id="delete" action="/animeblog/<%= animeblog._id %>?_method=DELETE" method="POST">
+            <button class="ui red inverted button">Delete</button>
+            </form>
+            <a href="/animeblog"  id="backto" class="ui inverted olive button" >Back to Anime list</a>
+
+        </div>
+       
+        
+    </div>
+   
+
+</div>
+
+
+
+
+
+<%- include("partials/footer"); %>

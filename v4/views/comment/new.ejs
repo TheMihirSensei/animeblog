@@ -1,0 +1,20 @@
+<%- include("../partials/header"); %>
+
+<div class="ui main text pink container segment">
+    <div class="ui huge header">Comment of <%- animeblog.title %></div>
+    <form action="/animeblog/<%= animeblog._id %>/comment" class="ui form" method="POST">
+        <div class="field">
+            <label>Your Name</label>
+            <input type="text" name="comment[author]" placeholder="Author name">
+        </div>
+        <div class="field">
+            <label>Write Point of view of yours</label>
+            <textarea name="comment[text]" cols="30" rows="20">write comment here</textarea>
+        </div>
+        
+        <input class="ui inverted big green button" type="submit">
+    
+    </form>
+</div>
+
+<%- include("../partials/footer"); %>

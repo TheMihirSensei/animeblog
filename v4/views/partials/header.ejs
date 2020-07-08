@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Blog</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    
+    
+
+
+</head>
+<body>
+
+  
+  <div class="ui fixed inverted menu">
+    <div class="ui container">
+      <div class="header item"> <i class="rss icon"></i> Anime Blog</div>
+      <a href="/" class="item">home </a>
+      <a href="/animeblog/new" class="item">New Anime </a>  
+      <div class="ui right content floated logn">
+
+        <% if(!currentUser){ %>
+          <a href="/login" class="item">login</a> 
+          <a href="/signup" class="item">Sing-up</a>
+        <% } else{ %>
+          <a href="#" class="item">Welcome <%= currentUser.username %></a>
+          <a href="/logout" class="item">LogOut</a>
+        <% } %>
+        
+        
+      
+      </div>
+    </div>  
+  </div>
+    
+      
+    
+    
+    

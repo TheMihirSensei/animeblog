@@ -1,0 +1,28 @@
+<%- include("partials/header"); %>
+
+<div class="ui main text pink container segment">
+    <div class="ui huge header">New Anime blog</div>
+    <form action="/animeblog" class="ui form" method="POST">
+        <div class="field">
+            <label>Anime Title</label>
+            <input type="text" name="animeblog[title]" placeholder="Anime name">
+        </div>
+        <div class="field">
+            <label>Anime Image</label>
+            <input type="text" name="animeblog[image]" placeholder="Anime Image">
+        </div>
+        <div class="field">
+            <label>Number of episode</label>
+            <input type="text" name="animeblog[episode]" placeholder="episodes">
+        </div>
+        <div class="field">
+            <label>Description of anime blog</label>
+            <textarea name="animeblog[desc]" cols="30" rows="20"></textarea>
+        </div>
+        
+        <input class="ui inverted big green button" type="submit">
+    
+    </form>
+</div>
+
+<%- include("partials/footer"); %>
