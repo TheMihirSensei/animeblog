@@ -1,0 +1,22 @@
+<%- include("../partials/header"); %>
+
+
+<div class="ui main text container segment inverted">
+    <h1>Sign-up <span>"<i class="sign-in basic green icon"></i></span></h1>
+    <form action="/signup" method="POST" class=" ui form">
+        <div class="field">
+            <input type="text" name="username" placeholder="User name">
+        </div>
+        <div class="field">
+            <input type="password" name="password" placeholder="Password">
+        </div>
+       
+       
+        <button class="ui green basic button">Sign up</button>
+    </form>
+
+</div>
+
+
+
+<%- include("../partials/footer"); %>
