@@ -1,0 +1,33 @@
+
+<%- include("../partials/header"); %>
+
+<div class="ui main container inverted segment ">
+    <div class="ui huge header">Anime Blog:))</div>
+    <div class="ui top attached segment">
+        <div class="ui inverted items">
+            <% animeblog.forEach(function(anime){ %>
+                <div class="item">
+                    <div class="ui small image">
+                        <img src="<%= anime.image %>">
+                    </div>
+                    <div class="ui content">
+                        <a href="/animeblog/<%= animeblog._id %>" class="header"><%= anime.title %></a>
+                        <div class="ui meta">
+                            Episode-- <%= anime.episode %>
+                        </div>
+                        <div class="ui extra">
+                            <a class="ui green basic button" href="/animeblog/<%= anime._id %>">More</a>
+                        </div>
+                    </div>
+                  
+                </div>
+                <div class="ui divider"></div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include("../partials/footer"); %>
+

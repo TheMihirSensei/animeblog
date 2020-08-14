@@ -1,0 +1,103 @@
+<%- include("../partials/header"); %>
+
+
+
+<style>
+
+    body{
+        background-image: url("<%- animeblog.image %>");
+        background-repeat: no-repeat repeat;
+        background-position:center;
+        background-size:cover;
+        background-color: rgba(255,255,255,0.4);
+        background-blend-mode: lighten;
+        opacity: .9;
+        height:10vh;
+        
+        
+    }
+    .tu{
+        font-size: 15px;
+        color: gray;
+        font-family: kalam;
+        letter-spacing: 2px;
+        justify-content: space-around;
+        display: inline;
+    }
+    
+
+</style>
+
+
+<div class="ui main text black inverted container segment">
+    <div class="ui huge header nahi">
+        <%= animeblog.title %>
+        <span>
+            
+            <em class="tu" ><i class="calendar alternate icon"></i><%= animeblog.date %></em>
+        </span>        
+    </div>
+    <div class=" ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= animeblog.image %>">
+        </div>
+        <div class="item">
+           <h4 class="ui centered">Episode: <%= animeblog.episode %>  </h4> 
+        </div>
+        <div class="description"">
+            <%- animeblog.desc %>
+        </div>
+
+        <div class="item">
+            <em>created by : <span style="color: green; font-family: kalam;"><%= animeblog.author.username %></span></em>
+        </div>
+
+
+      
+        <div id="foot" >
+            <a href="/animeblog/<%= animeblog._id %>/edit" class="ui inverted green button">Edit</a>
+
+            <form id="delete" action="/animeblog/<%= animeblog._id %>?_method=DELETE" method="POST">
+            <button class="ui red inverted button">Delete</button>
+            </form>
+            <a href="/animeblog"  id="backto" class="ui inverted olive button" >Back to Anime list</a>
+           
+        </div>   
+     
+    </div>   
+</div>
+<div class="ui comments inverted text container">
+    <div class="ui dividing  header">Comments</div>
+    <div class="ui comment">
+       
+        <% animeblog.comments.forEach(function(comment){ %>
+            <a class="avatar" >
+                <img src="https://th.bing.com/th?q=Animated+Avatars&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.25&pid=InlineBlock&mkt=en-IN&adlt=moderate&t=1&mw=247">
+            </a>
+            <div class="content">
+                <div class="author">
+                    <%= comment.author.username %>
+                    <span class="metadata">
+                        <span class="date">Today at 5:42PM</span>
+                    </span>
+                </div>
+                
+                <div class="text">
+                    <%= comment.text %>
+                </div>
+                <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+            </div>
+        <%  }) %>
+        <a href="/animeblog/<%= animeblog._id %>/comment/new" class="ui green com inverted button">Add Comment dear</a>
+
+    </div>
+  
+</div>        
+
+
+
+
+
+<%- include("../partials/footer"); %>
